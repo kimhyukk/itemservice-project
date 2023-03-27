@@ -27,7 +27,7 @@ public class HomeController {
         // 세션에 회원 데이터가 없으면 홈으로
         if (loginMember == null) {
             model.addAttribute("loginForm", new LoginForm());
-            return "/login/loginForm";
+            return "redirect:/login";
         }
 
         //회원 데이터 조회 성공

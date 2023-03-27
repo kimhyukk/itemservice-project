@@ -33,7 +33,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public String login(@Validated @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, HttpServletRequest request,
-                        @RequestParam(defaultValue = "/") String url) {
+                        @RequestParam(defaultValue = "/") String redirectURL) {
 
         if (bindingResult.hasErrors()) {
             log.info("에러발생 errors={}", bindingResult);
@@ -53,7 +53,7 @@ public class LoginController {
 
         //쿠키에 시간정보를 주지 않으면 세션 쿠키
 
-        return "redirect:"+url;
+        return "redirect:" + redirectURL;
     }
 
 

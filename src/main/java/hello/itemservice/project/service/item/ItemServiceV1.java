@@ -16,11 +16,13 @@ public class ItemServiceV1 implements ItemService{
 
     private final SpringDataJpaItemRepository repository;
 
+    @Transactional
     @Override
     public Item save(Item item) {
         return repository.save(item);
     }
 
+    @Transactional
     @Override
     public void update(Long itemId, UpdateDAO updateDAO) {
 

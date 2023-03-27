@@ -5,6 +5,7 @@ import hello.itemservice.project.repository.member.MemberRepository;
 import hello.itemservice.project.repository.member.SpringDataJpaMemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -12,10 +13,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MemberService {
 
-//    private final MemberRepository memberRepository;
 
     private final SpringDataJpaMemberRepository memberRepository;
 
+    @Transactional
     public void save(Member member) {
         memberRepository.save(member);
     }
